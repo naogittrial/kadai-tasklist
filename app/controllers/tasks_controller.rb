@@ -10,7 +10,13 @@ class TasksController < ApplicationController
   def new
     @tasks = Tasks.new
   end
-    @task = Task.find(params[:id])
+    
   def edit
+    @task = Task.find(params[:id])
   end
+  
+  def task_params
+    params.require(:task).permit(:content, :status)
+  end
+
 end
